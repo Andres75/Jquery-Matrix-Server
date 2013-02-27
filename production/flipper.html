@@ -15,9 +15,9 @@
 	list-style:none;
 }
 
-.matrixPager-row li { position:relative; float:left }
-.matrixPager-row .source { position: absolute; z-index:4; }
-.matrixPager-row .destination { position: absolute; z-index:2; }
+.matrixPager-row li { position:relative; float:left; overflow:hidden }
+.matrixPager-row .source { position: absolute; z-index:4; overflow:hidden }
+.matrixPager-row .destination { position: absolute; z-index:2; overflow:hidden }
 .box img { width:103px; height:51px }
 </style>
 </head>
@@ -105,8 +105,8 @@
 	$(document).ready(function(e) {
 		$('#shooter').matrixPager({
 			triggerStart:'timer',
-			rows:6,
-			cols:3				
+			rows:1,
+			cols:5				
 		});
 		$('p').click(function(){
 			$boxes = $('.mybox'); console.log($boxes.length);

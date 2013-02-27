@@ -15,7 +15,7 @@
 		selector: null,
 		
 		/* Delay before starting in ms */
-		delayStart: 1000,
+		delayStart: 0,
 		
 		/* Delay between each page in ms */
 		pause: 5000,
@@ -61,12 +61,12 @@
 					var $s = $src.eq(mi);
 					var $d = $dst.eq(mi);
 					console.log('animating '+mi);
-					$s.animate({opacity:0},200, function(t){
+					$s.animate({'opacity':0},500, function(t){
 						//$d.animate({opacity:1},200);
 						$d.after($(this)).removeClass('destination').addClass('source');
 						$(this).css('opacity',1).removeClass('source').addClass('destination');
 					});
-					//$s.hide();
+
 					mi++;
 					if (mi < $l) {
 						//snakeLeft();
