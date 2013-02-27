@@ -82,17 +82,6 @@
 					break;
 			}
 
-
-			//alert('s');
-//			$('.matrixPager-row li').each(function(){
-//				
-//				$mdst = $(this).find('.destination');
-//				$msrc = $(this).find('.source');
-//				$msrc.before($mdst).removeClass('source').addClass('destination').css('opacity',1);
-//				$mdst.removeClass('destination').addClass('source')
-//			
-//			})
-
 			
 			if ($currpage == $pages) $currpage = 1; else $currpage++;
 			
