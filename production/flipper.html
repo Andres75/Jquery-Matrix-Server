@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="shttp://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<script src="matrixPager.js"></script>
+<script src="jquery.flippy.js"></script>
+<style>
+.mybox{
+background: #ccc;
+color: #333;
+min-width: 103px;
+width: 103px;
+min-height: 48px;
+height: 48px;
+text-align: center;
+line-height: 300px;
+margin: 0 auto;
+position:relative}
+.mybox img { position:absolute; top:0; left:0 }
+.matrixPager-row {
+	list-style:none;
+	padding:0;
+	margin:0;
+	clear:both;
+	}
+.matrixPager-row li {
+	display:inline;
+	float:left;
+	margin:0;
+	padding:0;
+	line-height:0
+ 	}
+#shooter2 .box { padding: 24px; width:40px }
+.destination { opacity:0; display:none }
+</style>
+</head>
+
+<body style="background:#ccc">
+<div class="mybox"><img src="microsoft.jpg" /></div>
+<div class="mybox"><img src="microsoft.jpg" /></div>
+<p>asdasda</p>
+<div id="shooter" >
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="kleenex.jpg" /></div>
+	<div class="box"><img src="barclays.jpg" /></div>
+	<div class="box"><img src="bbc.jpg" /></div>
+	<div class="box"><img src="tesco.jpg" /></div>
+	<div class="box"><img src="vodafone.jpg" /></div>
+	<div class="box"><img src="merc.jpg" /></div>
+	<div class="box"><img src="bt.jpg" /></div>
+	<div class="box"><img src="hsbc.jpg" /></div>
+	<div class="box"><img src="rbs.jpg" /></div>
+	<div class="box"><img src="sony.jpg" /></div>
+	<div class="box"><img src="libertylife.jpg" /></div>
+	<div class="box"><img src="telstra.jpg" /></div>
+	<div class="box"><img src="clsa.jpg" /></div>
+	<div class="box"><img src="deutschebank.jpg" /></div>
+	<div class="box"><img src="aventis.jpg" /></div>
+	<div class="box"><img src="anz.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+	<div class="box"><img src="microsoft.jpg" /></div>
+</div>
+
+<div id="shooter2" style="display:none">
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<div class="box">5</div>
+	<div class="box">6</div>
+	<div class="box">7</div>
+	<div class="box">8</div>
+	<div class="box">9</div>
+	<div class="box">10</div>
+	<div class="box">11</div>
+	<div class="box">12</div>
+	<div class="box">13</div>
+	<div class="box">14</div>
+	<div class="box">15</div>
+	<div class="box">16</div>
+	<div class="box">17</div>
+	<div class="box">18</div>
+	<div class="box">19</div>
+	<div class="box">20</div>
+	<div class="box">21</div>
+	<div class="box">22</div>
+	<div class="box">23</div>
+	<div class="box">24</div>
+	<div class="box">25</div>
+	<div class="box">26</div>
+	<div class="box">27</div>
+</div>
+
+<script>
+	$(document).ready(function(e) {
+		$('#shooter').matrixPager({
+			triggerStart:'timer',
+			rows:6,
+			cols:3				
+		});
+		$('p').click(function(){
+			$boxes = $('.mybox'); console.log($boxes.length);
+			$('.mybox').each(function(e,c){
+				console.log('ss ->'+c);
+				$(c).flippy({
+					content:'<img src="anz.jpg" />',
+					direction:"TOP",
+					duration:"250",
+					onStart:function(){
+				//alert("Let's flip");
+					},
+					onFinish:function(){
+				//alert("ok, it's flipped :)");
+					}
+				});
+	  		});
+		});
+	});
+</script>
+</body>
+</html>
+<!--
+
+    $('#mybox').hover(function(){
+		$(this).flippy({
+			content:'<img src="anz.jpg" />',
+			direction:"TOP",
+			duration:"250",
+			onStart:function(){
+				//alert("Let's flip");
+			},
+			onFinish:function(){
+				//alert("ok, it's flipped :)");
+			}
+		});
+	});
+    -->
