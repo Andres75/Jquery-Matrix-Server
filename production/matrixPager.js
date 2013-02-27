@@ -18,7 +18,7 @@
 		delayStart: 1000,
 		
 		/* Delay between each page in ms */
-		pause: 2000,
+		pause: 5000,
 		
 		/* Tells each grid element on what to play the start effect */
 		triggerStart: 'timer',
@@ -50,27 +50,27 @@
 		$currpage = 2;
 	
 		function pageit(){
+			
 				
 			$src = $this.find('.source');
-			$dst = $this.find('.destination');//.css({opacity:0}).show();
+			$dst = $this.find('.destination').css('display','normal');
 			$l = $src.length;
 			mi = 0;
-			outspeed = 100;
-			inspeed  = 200;
-			eachdelay = 25;
 
 			function snakeLeft(){
 					var $s = $src.eq(mi);
 					var $d = $dst.eq(mi);
-					$s.animate({opacity:0},200, function(){
-						//alert('anim');
-						$s.hide();
-  						$d.animate({opacity:1},inspeed);
-					});			
+					console.log('animating '+mi);
+					$s.animate({opacity:0},200, function(t){
+						//$d.animate({opacity:1},200);
+						$d.after($(this)).removeClass('destination').addClass('source');
+						$(this).css('opacity',1).removeClass('source').addClass('destination');
+					});
+					//$s.hide();
 					mi++;
 					if (mi < $l) {
 						//snakeLeft();
-						setTimeout(snakeLeft,eachdelay);
+						setTimeout(snakeLeft,125);
 					}
 			}
 
@@ -84,14 +84,14 @@
 
 
 			//alert('s');
-			$('.matrixPager-row li').delay(1000).each(function(){
-				
-				$mdst = $(this).find('.destination');
-				$msrc = $(this).find('.source');
-				$msrc.before($mdst).removeClass('source').addClass('destination').hide();
-				$mdst.removeClass('destination').addClass('source').show();
-				
-			})
+//			$('.matrixPager-row li').each(function(){
+//				
+//				$mdst = $(this).find('.destination');
+//				$msrc = $(this).find('.source');
+//				$msrc.before($mdst).removeClass('source').addClass('destination').css('opacity',1);
+//				$mdst.removeClass('destination').addClass('source')
+//			
+//			})
 
 			
 			if ($currpage == $pages) $currpage = 1; else $currpage++;
@@ -178,7 +178,7 @@
 					if (y == options.rows) $addClass=' first';
 					if (y == 0) $addClass=' last';
 					
-					$panel += '<li class="'+x+'x'+y+$addClass+'">';
+					$panel += '<li class="'+x+'x'+y+$addClass+'" style="width:103px; height:51px">';
 					$panel += '		<div class="source">';					
 					$panel += 			raster[counter];
 					$panel += '		</div>';
